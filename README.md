@@ -6,7 +6,9 @@
 
   In this assignment, I was given starter code that was missing back-end function. This was an exercise in deploying express.js techniques to set up routes in order for the client and server to communicate.
 
-  This project utilizes Node.js and Express.js for its framework.
+  This project utilizes Node.js and Express.js for its framework. It also utilizes uuid, a node package that generates a random ID for each note.
+
+  This application is deployed at: https://pure-savannah-26180.herokuapp.com/
 
   ## Table of Contents
   * [Installation](#installation)
@@ -29,4 +31,8 @@
 This project is licensed under the [MIT](https://opensource.org/licenses/MIT) license.
 
 ## Credits
-
+https://devcenter.heroku.com/articles/git#creating-a-heroku-remote<br>
+https://expressjs.com/en/5x/api.html#app.use<br>
+https://expressjs.com/en/5x/api.html#app.post.method<br>
+https://www.npmjs.com/package/uuid<br>
+https://nodejs.org/api/fs.html#fswritefilefile-data-options-callback
