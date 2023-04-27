@@ -46,11 +46,11 @@ app.post('/api/notes', (req, res) => {
       .then((notes) => {
         notes.push({title, text, id});
         // rewrites the file with the existing and newly added note
-        fs.writeFile('./db/db.json', notes, (err) => {
+        fs.writeFile('./db/db.json', JSON.stringify(notes), (err) => {
             console.log(notes);
           if (err) throw err;
         //   sends success message to client
-          res.json({success: true});
+          res.json({ success: true });
         });
       })
     //   if there is an error, send error to client
