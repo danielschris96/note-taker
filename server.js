@@ -41,30 +41,31 @@ app.post('/api/notes', (req, res) => {
     // generates random id for note
     const id = myUuidv4();
     readFileData('./db/db.json')
+    // takes existing notes and adds new note to end of array
       .then((data) => JSON.parse(data))
       .then((notes) => {
         notes.push({title, text, id});
+        // rewrites the file with the existing and newly added note
         fs.writeFile('./db/db.json', notes, (err) => {
             console.log(notes);
           if (err) throw err;
-          res.json({ success: true });
+        //   sends success message to client
+          res.json({success: true});
         });
       })
+    //   if there is an error, send error to client
       .catch((err) => {
         console.error(err);
-        res.json({ success: false });
+        res.json({ success:false});
       });
   });
 
+//   catch all that returns user to homepage
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/index.html'));
 });
-  
 
-
-
-
-
+// instructs server to listen on designated port
 app.listen(PORT, () => {
     console.log('Server listening on port 3001');
 })
